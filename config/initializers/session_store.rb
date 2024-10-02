@@ -1,0 +1,1 @@
+# Rails.application.config.session_store :disabled  #followed a guide but it dosnet stop it working without. 
