@@ -40,5 +40,12 @@ module DakotaJwtTutorial
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # one option to avoid this error: ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+    # is adding below confguration.  But this is not recommended as it will store the session in the cookie.
+    # So there we can use the workaround instead of this.
+    # config.session_store :cookie_store, key: '_interslice_session'
+    # config.middleware.use ActionDispatch::Cookies
+    # config.middleware.use config.session_store, config.session_options
   end
 end
